@@ -11,7 +11,7 @@ and normal mode and how to configure router interface and how to save this confi
 <BR>
 flash memory or permanent memory.
 <BR>
-This commands includes
+This commands includes 
 <BR>
 • Configuring the Router commands
 <BR>
