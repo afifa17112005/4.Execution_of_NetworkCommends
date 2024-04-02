@@ -26,7 +26,46 @@ This commands includes
 • Other IP Commands e.g. show ip route etc.
 <BR>
 
+## program
+## ping command
+## client 
+import socket 
+from pythonping import ping 
+s=socket.socket() 
+s.bind(('localhost'8000)) 
+s.listen(5) 
+c,addr=s.accept() 
+while True: 
+    hostname=c.recv(1024).decode() 
+    try: 
+        c.send(str(ping(hostname, verbose=False)).encode()) 
+    except KeyError: 
+        c.send("Not Found".encode())
+        
+
+## server
+import socket 
+s=socket.socket() 
+s.connect(('localhost',8000)) 
+while True: 
+    ip=input("Enter the website you want to ping ") 
+    s.send(ip.encode()) 
+    print(s.recv(1024).decode())
+    
+## Tranceroute command
+from scapy.all import* 
+target = ["www.google.com"] 
+result, unans = traceroute(target,maxttl=32) 
+print(result,unans)
 ## Output
+## ping command
+## client
+![Screenshot 2024-04-02 183718](https://github.com/afifa17112005/4.Execution_of_NetworkCommends/assets/147080931/56466d07-6ff5-42be-97a3-663e0502df48)
+
+## server
+![Screenshot 2024-04-02 183756](https://github.com/afifa17112005/4.Execution_of_NetworkCommends/assets/147080931/f358d2bb-538c-4ad3-9706-b22755bf3f74)
+## tranceroute command
+![Screenshot 2024-04-02 183825](https://github.com/afifa17112005/4.Execution_of_NetworkCommends/assets/147080931/c163bf47-55b3-4780-94c7-76152a18f6ca)
 
 ## Result
 Thus Execution of Network commands Performed 
