@@ -29,6 +29,7 @@ This commands includes
 ## program
 ## ping command
 ## client 
+```py
 import socket 
 from pythonping import ping 
 s=socket.socket() 
@@ -41,9 +42,10 @@ while True:
         c.send(str(ping(hostname, verbose=False)).encode()) 
     except KeyError: 
         c.send("Not Found".encode())
-        
+        ```
 
 ## server
+```py
 import socket 
 s=socket.socket() 
 s.connect(('localhost',8000)) 
@@ -51,12 +53,14 @@ while True:
     ip=input("Enter the website you want to ping ") 
     s.send(ip.encode()) 
     print(s.recv(1024).decode())
-    
+    ```
 ## Tranceroute command
+```py
 from scapy.all import* 
 target = ["www.google.com"] 
 result, unans = traceroute(target,maxttl=32) 
 print(result,unans)
+```
 ## Output
 ## ping command
 ## client
